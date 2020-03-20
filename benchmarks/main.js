@@ -13,6 +13,7 @@ app.once("ready", async () => {
   server.webContents.openDevTools();
   client.webContents.openDevTools();
 
+  // setup MessageChannel method
   ipcMain.on("port", e => {
     client.webContents.postMessage("port", null, e.ports);
 
@@ -23,4 +24,8 @@ app.once("ready", async () => {
 
   await client.loadFile("client.html");
   await server.loadFile("server.html");
+
+  // Setup sendTo method
+  server.webContents.send("client", client.webContents.id);
+  client.webContents.send("server", server.webContents.id);
 });
