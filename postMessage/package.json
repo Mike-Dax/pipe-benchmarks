@@ -1,0 +1,9 @@
+{
+  "name": "postMessage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "./Electron.app/Contents/MacOS/Electron main.js"
+  }
+}
